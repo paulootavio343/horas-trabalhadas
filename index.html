@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FFFFFF">
+    <meta name="author" content="Paulo Otávio">
+    <meta name="description" content="???">
+    <meta name="keywords" content="???">
+    <title>Horas Trabalhadas</title>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Code -->
+    <script src="assets/js/code.js"></script>
+</head>
+
+<body class="body">
+    <div class="content">
+        <h1 class="content-title">Horas Trabalhadas</h1>
+        <p class="content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, nobis.</p>
+
+        <div class="calculator">
+            <label for="start">Hora de início:</label>
+            <input type="time" class="start" id="start">
+
+            <div class="interval">
+                <div>
+                    <label for="start-interval">Início do intervalo:</label>
+                    <input type="time" class="start-interval" id="start-interval">
+                </div>
+
+                <div>
+                    <label for="end-interval">Fim do intervalo:</label>
+                    <input type="time" class="end-interval" id="end-interval">
+                </div>
+
+                <button class="add-interval">+</button>
+            </div>
+
+            <label for="end">Hora de saída:</label>
+            <input type="time" class="end" id="end">
+
+            <button type="submit" class="submit-button">Calcular</button>
+
+            <label for="result">Horas trabalhadas</label>
+            <input type="text" disabled class="result" id="result">
+        </div>
+    </div>
+</body>
+
+</html>
