@@ -5,51 +5,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#FFFFFF">
+    <meta name="theme-color" content="#212529">
     <meta name="author" content="Paulo Otávio">
     <meta name="description" content="???">
     <meta name="keywords" content="???">
     <title>Horas Trabalhadas</title>
 
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
     <!-- Style -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <!-- Code -->
-    <script src="assets/js/code.js"></script>
 </head>
 
 <body class="body">
     <div class="content">
         <h1 class="content-title">Horas Trabalhadas</h1>
-        <p class="content-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, nobis.</p>
+        <p class="content-text">Calcule quantas horas você trabalhou em um dia.</p>
 
         <div class="calculator">
             <label for="start">Hora de início:</label>
             <input type="time" class="start" id="start">
 
-            <div class="interval">
-                <div>
-                    <label for="start-interval">Início do intervalo:</label>
-                    <input type="time" class="start-interval" id="start-interval">
-                </div>
+            <div class="interval-box">
+                <div class="interval">
+                    <div>
+                        <label for="start-interval">Início do intervalo:</label>
+                        <input type="time" class="start-interval" id="start-interval">
+                    </div>
 
-                <div>
-                    <label for="end-interval">Fim do intervalo:</label>
-                    <input type="time" class="end-interval" id="end-interval">
-                </div>
+                    <div>
+                        <label for="end-interval">Fim do intervalo:</label>
+                        <input type="time" class="end-interval" id="end-interval">
+                    </div>
 
-                <button class="add-interval">+</button>
+                    <span class="material-icons-round" id="close-button">close</span>
+                </div>
             </div>
 
             <label for="end">Hora de saída:</label>
             <input type="time" class="end" id="end">
 
-            <button type="submit" class="submit-button">Calcular</button>
+            <button type="submit" class="submit-button" id="submit-button">Calcular</button>
 
-            <label for="result">Horas trabalhadas</label>
-            <input type="text" disabled class="result" id="result">
+            <label for="result">Horas trabalhadas:</label>
+            <input type="text" disabled class="result" id="result" value="00:00">
         </div>
+
+        <button class="add-interval">
+            <span class="material-icons-round">add</span>
+            Adicionar intervalo
+        </button>
     </div>
+
+    <!-- Code -->
+    <script src="assets/js/code.js" type="text/javascript" async></script>
 </body>
 
 </html>

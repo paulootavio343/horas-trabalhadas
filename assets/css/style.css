@@ -1,13 +1,30 @@
 :root {
-    --white-color: #FFFFFF;
-    --dark-color: #323232;
-    --secondary-color: #464646;
+    --white-color: #f8f9fa;
+    --dark-color: #212529;
+    --secondary-color: #343a40;
+    --tertiary-color: #adb5bd;
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto_Bold';
+    src: url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 html {
@@ -69,40 +86,43 @@ img {
     align-content: center;
     padding: 2rem;
     border-radius: 1rem;
-    box-shadow: 0 0 1rem grey;
+    border: 2px solid var(--tertiary-color);
 }
 
 .calculator .interval {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     align-content: center;
     align-items: center;
+    background-color: var(--dark-color);
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    position: relative;
 }
 
 .calculator .interval input {
-    margin-right: 1rem;
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.interval span {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.interval span:active {
+    transform: scale(0.8);
 }
 
 .interval div {
     display: flex;
     flex-direction: column;
-}
-
-.calculator .add-interval {
-    width: 4rem;
-    height: 4rem;
-    padding: 1rem;
-    font-size: inherit;
-    font-family: inherit;
-    border: 2px solid grey;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    cursor: pointer;
-    transition: 0.2s ease;
 }
 
 .calculator input,
@@ -111,7 +131,7 @@ img {
     padding: 1rem;
     font-size: inherit;
     font-family: inherit;
-    border: 2px solid grey;
+    border: 2px solid var(--tertiary-color);
     border-radius: 1rem;
     margin-bottom: 2rem;
 }
@@ -122,12 +142,48 @@ img {
     transition: 0.2s ease;
 }
 
-.calculator .submit-button:hover,
-.calculator .add-interval:hover {
+.calculator .submit-button:hover {
     transform: scale(1.05);
 }
 
-.calculator .submit-button:active,
-.calculator .add-interval:active {
+.calculator .submit-button:active {
     transform: scale(0.95);
+}
+
+.calculator .result {
+    color: var(--white-color);
+    text-align: center;
+    font-size: 3rem;
+}
+
+.add-interval {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--white-color);
+    color: var(--dark-color);
+    font-size: inherit;
+    font-family: inherit;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.add-interval:hover {
+    transform: scale(1.05);
+}
+
+.add-interval:active {
+    transform: scale(0.95);
+}
+
+.add-interval span {
+    color: var(--dark-color);
 }
