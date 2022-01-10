@@ -49,7 +49,26 @@
     }
 
     function calculator() {
-        const startTime = document.getElementById('start');
-        console.log(startTime.value);
+        const startTime = document.getElementById('start').value.split(':');
+        const endTime = document.getElementById('end').value.split(':');
+        const result = document.getElementById('result');
+
+        let hours = endTime[0] - startTime[0];
+        let minutes = endTime[1] - startTime[1];
+
+        if (minutes < 0) {
+            hours -= 1;
+            minutes = 60 + minutes;
+        }
+
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+
+        result.value = hours + ':' + minutes;
     }
 })()
