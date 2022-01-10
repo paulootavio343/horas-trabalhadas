@@ -52,8 +52,8 @@
         const startTime = document.getElementById('start').value.split(':');
         const endTime = document.getElementById('end').value.split(':');
         const result = document.getElementById('result');
-
         const intervals = document.querySelectorAll('.interval');
+
         let totalBreakHours = 0;
         let totalBreakMinutes = 0;
 
@@ -61,20 +61,12 @@
             const start = interval.childNodes[1].childNodes[3].value.split(':');
             const end = interval.childNodes[3].childNodes[3].value.split(':');
 
-            let breakHours = end[0] - start[0];
-            let breakMinutes = end[1] - start[1];
+            let breakHours = parseInt(end[0]) - parseInt(start[0]);
+            let breakMinutes = parseInt(end[1]) - parseInt(start[1]);
 
             if (breakMinutes < 0) {
                 breakHours -= 1;
-                breakMinutes = 60 + breakMinutes;
-            }
-
-            if (breakMinutes < 10) {
-                breakMinutes = '0' + breakMinutes;
-            }
-
-            if (breakHours < 10) {
-                breakHours = '0' + breakHours;
+                breakMinutes += 60;
             }
 
             totalBreakHours += parseInt(breakHours);
@@ -83,24 +75,15 @@
 
         if (totalBreakMinutes > 59) {
             totalBreakHours += 1;
-            diference = totalBreakMinutes - 60;
-            totalBreakMinutes = diference;
+            totalBreakMinutes -= 60;
         }
 
-        let hours = endTime[0] - startTime[0];
-        let minutes = endTime[1] - startTime[1];
+        let hours = parseInt(endTime[0]) - parseInt(startTime[0]);
+        let minutes = parseInt(endTime[1]) - parseInt(startTime[1]);
 
         if (minutes < 0) {
             hours -= 1;
-            minutes = 60 + minutes;
-        }
-
-        if (minutes < 10) {
-            minutes = '0' + minutes;
-        }
-
-        if (hours < 10) {
-            hours = '0' + hours;
+            minutes += 60;
         }
 
         workedHours = hours - totalBreakHours;
@@ -108,7 +91,7 @@
 
         if (workedMinutes < 0) {
             workedHours -= 1;
-            workedMinutes = 60 + workedMinutes;
+            workedMinutes += 60;
         }
 
         if (workedHours < 10) {
@@ -120,44 +103,5 @@
         }
 
         result.value = workedHours + ':' + workedMinutes;
-    }
-
-    function calculateBreakTime() {
-        const intervals = document.querySelectorAll('.interval');
-        let totalBreakHours = 0;
-        let totalBreakMinutes = 0;
-
-        intervals.forEach(interval => {
-            const start = interval.childNodes[1].childNodes[3].value.split(':');
-            const end = interval.childNodes[3].childNodes[3].value.split(':');
-
-            let hours = end[0] - start[0];
-            let minutes = end[1] - start[1];
-
-            if (minutes < 0) {
-                hours -= 1;
-                minutes = 60 + minutes;
-            }
-
-            if (minutes < 10) {
-                minutes = '0' + minutes;
-            }
-
-            if (hours < 10) {
-                hours = '0' + hours;
-            }
-
-            totalBreakHours += parseInt(hours);
-            totalBreakMinutes += parseInt(minutes);
-        })
-
-        if (totalBreakMinutes > 59) {
-            totalBreakHours += 1;
-            diference = totalBreakMinutes - 60;
-            totalBreakMinutes = diference;
-        }
-
-        const totalBreakTime = totalBreakHours + ":" + totalBreakMinutes;
-        return totalBreakTime;
     }
 })()
