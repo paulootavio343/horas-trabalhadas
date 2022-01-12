@@ -49,59 +49,58 @@
     }
 
     function calculator() {
-        const startTime = document.getElementById('start').value.split(':');
-        const endTime = document.getElementById('end').value.split(':');
-        const result = document.getElementById('result');
         const intervals = document.querySelectorAll('.interval');
 
-        let totalBreakHours = 0;
-        let totalBreakMinutes = 0;
+        let totalBreakTime = 0;
 
         intervals.forEach(interval => {
             const start = interval.childNodes[1].childNodes[3].value.split(':');
             const end = interval.childNodes[3].childNodes[3].value.split(':');
 
-            let breakHours = parseInt(end[0]) - parseInt(start[0]);
-            let breakMinutes = parseInt(end[1]) - parseInt(start[1]);
-
-            if (breakMinutes < 0) {
-                breakHours -= 1;
-                breakMinutes += 60;
+            function format_in_seconds(h, min) {
+                return (h * 3600) + (min * 60);
             }
 
-            totalBreakHours += parseInt(breakHours);
-            totalBreakMinutes += parseInt(breakMinutes);
+            let time1 = format_in_seconds(end[0], end[1]);
+            let time2 = format_in_seconds(start[0], start[1]);
+
+            let difference = time1 - time2;
+
+            /*
+            totalBreakHours += Math.floor(diferenca / 3600);
+            totalBreakMinutes += Math.floor((diferenca - (totalBreakHours * 3600)) / 60);
+            */
+
+            totalBreakTime += difference;
         })
 
-        if (totalBreakMinutes > 59) {
-            totalBreakHours += 1;
-            totalBreakMinutes -= 60;
+        const startTime = document.getElementById('start').value.split(':');
+        const endTime = document.getElementById('end').value.split(':');
+        const result = document.getElementById('result');
+
+        function format_in_seconds_two(h, min) {
+            return (h * 3600) + (min * 60);
         }
 
-        let hours = parseInt(endTime[0]) - parseInt(startTime[0]);
-        let minutes = parseInt(endTime[1]) - parseInt(startTime[1]);
+        let time1 = format_in_seconds_two(endTime[0], endTime[1]);
+        let time2 = format_in_seconds_two(startTime[0], startTime[1]);
 
-        if (minutes < 0) {
-            hours -= 1;
-            minutes += 60;
+        let difference = time1 - time2;
+
+        workedTime = difference - totalBreakTime;
+
+        let finalHours = Math.floor(workedTime / 3600);
+        let finalMinutes = Math.floor((workedTime - (finalHours * 3600)) / 60);
+
+        if (finalHours < 10) {
+            finalHours = '0' + finalHours;
         }
 
-        workedHours = hours - totalBreakHours;
-        workedMinutes = minutes - totalBreakMinutes;
-
-        if (workedMinutes < 0) {
-            workedHours -= 1;
-            workedMinutes += 60;
+        if (finalMinutes < 10) {
+            finalMinutes = '0' + finalMinutes;
         }
 
-        if (workedHours < 10) {
-            workedHours = '0' + workedHours;
-        }
-
-        if (workedMinutes < 10) {
-            workedMinutes = '0' + workedMinutes;
-        }
-
-        result.value = workedHours + ':' + workedMinutes;
+        /* Show the result */
+        result.value = finalHours + ':' + finalMinutes;
     }
 })()
