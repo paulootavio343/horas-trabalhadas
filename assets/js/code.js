@@ -33,7 +33,8 @@
             </div>
 
             <span class="material-icons-round" id="close-button">close</span>
-        </div>`
+        </div>
+        `
 
         const closeButton = document.querySelectorAll('#close-button');
 
@@ -87,6 +88,10 @@
 
         let difference = time1 - time2;
 
+        if (startTime > endTime) {
+            difference = (time1 - 0) + (86400 - time2);
+        }
+
         workedTime = difference - totalBreakTime;
 
         let finalHours = Math.floor(workedTime / 3600);
@@ -101,6 +106,10 @@
         }
 
         /* Show the result */
-        result.value = finalHours + ':' + finalMinutes;
+        if (isNaN(finalHours) === true || isNaN(finalMinutes) === true) {
+            result.value = 'Erro!'
+        } else {
+            result.value = finalHours + ':' + finalMinutes;
+        }
     }
 })()
