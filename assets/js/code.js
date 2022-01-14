@@ -2,6 +2,8 @@
     const addButton = document.querySelector('.add-interval');
     const closeButton = document.querySelectorAll('#close-button');
     const calculateButton = document.getElementById('submit-button');
+    const notification = document.querySelector('.notifications');
+    const notificationCloseButton = document.querySelector('.notifications');
 
     addButton.addEventListener('click', () => {
         addJobInterval()
@@ -15,6 +17,10 @@
         button.addEventListener('click', () => {
             removeJobInterval(event.target.parentNode);
         });
+    })
+
+    notificationCloseButton.addEventListener('click', () => {
+        notification.classList.remove('show')
     })
 
     function addJobInterval() {
@@ -32,7 +38,7 @@
                 <input type="time" class="end-interval" id="end-interval">
             </div>
 
-            <span class="material-icons-round" id="close-button">close</span>
+            <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X." id="close-button">
         </div>
         `
 
@@ -107,7 +113,8 @@
 
         /* Show the result */
         if (isNaN(finalHours) === true || isNaN(finalMinutes) === true) {
-            result.value = 'Erro!'
+            notification.classList.add('show');
+            result.value = '00:00';
         } else {
             result.value = finalHours + ':' + finalMinutes;
         }

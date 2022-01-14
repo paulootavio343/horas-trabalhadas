@@ -97,7 +97,7 @@ img {
     align-content: center;
     align-items: center;
     background-color: var(--dark-color);
-    padding: 1rem 2rem;
+    padding: 2rem;
     margin-bottom: 1rem;
     border-radius: 1rem;
     position: relative;
@@ -108,15 +108,17 @@ img {
     margin-left: 0.5rem;
 }
 
-.interval span {
+.interval img {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    width: 3rem;
+    height: auto;
     cursor: pointer;
     transition: 0.2s ease;
 }
 
-.interval span:active {
+.interval img:active {
     transform: scale(0.8);
 }
 
@@ -179,6 +181,67 @@ img {
     transform: scale(0.95);
 }
 
-.add-interval span {
-    font-size: 3rem;
+.add-interval img {
+    width: 3rem;
+    height: auto;
+}
+
+.notifications {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--secondary-color);
+    padding: 1rem 2rem;
+    border: 2px solid var(--tertiary-color);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    display: none;
+}
+
+.notifications.show {
+    display: flex;
+}
+
+.notifications p {
+    margin-right: 1rem;
+}
+
+.notifications img {
+    width: 3rem;
+    height: auto;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.notifications img:hover {
+    transform: scale(1.05);
+}
+
+.notifications img:active {
+    transform: scale(0.95);
+}
+
+footer {
+    height: 10rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    color: var(--white-color);
+}
+
+footer a {
+    color: var(--white-color);
+    text-decoration: underline;
+}
+
+footer a:hover {
+    text-decoration: none;
 }

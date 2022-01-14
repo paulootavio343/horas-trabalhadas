@@ -25,43 +25,68 @@
 </head>
 
 <body class="body">
-    <div class="content">
-        <h1 class="content-title">Horas Trabalhadas</h1>
-        <p class="content-text">Calcule quantas horas você trabalhou em um dia.</p>
+    <main>
+        <div class="content">
+            <h1 class="content-title">Horas Trabalhadas</h1>
+            <p class="content-text">Calcule quantas horas você trabalhou em um dia.</p>
 
-        <div class="calculator">
-            <label for="start">Hora de início:</label>
-            <input type="time" class="start" id="start">
+            <div class="calculator">
+                <label for="start">Hora de início:</label>
+                <input type="time" class="start" id="start">
 
-            <div class="interval-box">
-                <div class="interval">
-                    <div>
-                        <label for="start-interval">Início do intervalo:</label>
-                        <input type="time" class="start-interval" id="start-interval">
+                <div class="interval-box">
+                    <div class="interval">
+                        <div>
+                            <label for="start-interval">Início do intervalo:</label>
+                            <input type="time" class="start-interval" id="start-interval">
+                        </div>
+
+                        <div>
+                            <label for="end-interval">Fim do intervalo:</label>
+                            <input type="time" class="end-interval" id="end-interval">
+                        </div>
+
+                        <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X." id="close-button">
                     </div>
-
-                    <div>
-                        <label for="end-interval">Fim do intervalo:</label>
-                        <input type="time" class="end-interval" id="end-interval">
-                    </div>
-
-                    <span class="material-icons-round" id="close-button">close</span>
                 </div>
+
+                <button class="add-interval">
+                    <img src="assets/icons/add_black_24dp.svg" alt="Icone de um +.">
+                </button>
+
+                <label for="end">Hora de saída:</label>
+                <input type="time" class="end" id="end">
+
+                <button type="submit" class="submit-button" id="submit-button">Calcular</button>
+
+                <label for="result">Horas trabalhadas:</label>
+                <input type="text" disabled class="result" id="result" value="00:00">
             </div>
-
-            <button class="add-interval">
-                <span class="material-icons-round">add</span>
-            </button>
-
-            <label for="end">Hora de saída:</label>
-            <input type="time" class="end" id="end">
-
-            <button type="submit" class="submit-button" id="submit-button">Calcular</button>
-
-            <label for="result">Horas trabalhadas:</label>
-            <input type="text" disabled class="result" id="result" value="00:00">
         </div>
-    </div>
+
+        <div class="notifications">
+            <p>
+                Nenhum campo pode ficar vazio.
+            </p>
+
+            <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X.">
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <div class="footer-content-2 space">
+                <p>
+                    <a href="https://github.com/paulootavio343/horas-trabalhadas" rel="nofollow" target="_blank">
+                        Repositório no GitHub</a>
+                </p>
+                <p>
+                    <a href="termos-de-uso.html">Termos de Uso</a> e
+                    <a href="politica-de-privacidade.html">Política de Privacidade.</a>
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <!-- Code -->
     <script src="assets/js/code.js" type="text/javascript" async></script>
