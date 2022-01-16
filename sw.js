@@ -1,4 +1,4 @@
-var CACHE_NAME = 'horas-trabalhadas-cache-v1';
+var CACHE_NAME = 'horas-trabalhadas-cache-v2';
 var urlsToCache = [
     '/',
     '/index.html',
@@ -45,7 +45,7 @@ self.addEventListener('fetch', function (event) {
 
 self.addEventListener('activate', function (event) {
 
-    var cacheAllowlist = ['horas-trabalhadas-cache-v1'];
+    var cacheAllowlist = ['horas-trabalhadas-cache-v2'];
 
     event.waitUntil(
         caches.keys().then(function (cacheNames) {
