@@ -2,7 +2,7 @@
     "name": "Horas Trabalhadas",
     "short_name": "Horas Trab.",
     "description": "Calcule quantas horas você trabalhou em um dia.",
-    "start_url": "127.0.0.1:5500",
+    "start_url": "https://horastrabalhadas.netlify.app",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
