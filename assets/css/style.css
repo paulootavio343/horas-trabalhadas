@@ -69,9 +69,11 @@ img {
 .content-text {
     text-align: center;
 }
+
 .content-title {
     padding-top: 2rem;
 }
+
 .content-text {
     padding-bottom: 2rem;
 }
@@ -153,7 +155,7 @@ img {
 }
 
 .calculator .result {
-    color: var(--white-color);
+    color: var(--dark-color);
     text-align: center;
     font-size: 3rem;
 }

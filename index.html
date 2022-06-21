@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#212529">
+    <meta name="theme-color" content="#212529"> <!-- Chrome Android and Safari -->
+
     <meta name="author" content="Paulo Otávio">
     <meta name="description" content="Calcule quantas horas você trabalhou em um dia.">
     <meta name="keywords" content="horas, trabalho, trabalhou, calcular, calculadora, dia">
@@ -24,11 +25,12 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- Code -->
-    <script src="assets/js/service-worker-registration.js" type="text/javascript" async></script>
+    <script src="assets/js/service-worker-registration.js" type="text/javascript" defer></script>
+    <script src="assets/js/code.js" type="text/javascript" defer></script>
 </head>
 
 <body class="body">
-    <main>
+    <main class="main">
         <div class="content">
             <h1 class="content-title">Horas Trabalhadas</h1>
             <p class="content-text">Calcule quantas horas você trabalhou em um dia.</p>
@@ -49,12 +51,14 @@
                             <input type="time" class="end-interval" id="end-interval">
                         </div>
 
-                        <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X." id="close-button">
+                        <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X." id="close-button"
+                            loading="lazy" decoding="async" title="Excluir intervalo">
                     </div>
                 </div>
 
-                <button class="add-interval">
-                    <img src="assets/icons/add_black_24dp.svg" alt="Icone de um +.">
+                <button type="button" class="add-interval">
+                    <img src="assets/icons/add_black_24dp.svg" alt="Icone de um +." id="add-button" loading="lazy"
+                        decoding="async" title="Adicionar intervalo">
                 </button>
 
                 <label for="end">Hora de saída:</label>
@@ -63,7 +67,7 @@
                 <button type="submit" class="submit-button" id="submit-button">Calcular</button>
 
                 <label for="result">Horas trabalhadas:</label>
-                <input type="text" disabled class="result" id="result" value="00:00">
+                <input type="text" readonly class="result" id="result" value="00:00">
             </div>
         </div>
 
@@ -72,7 +76,8 @@
                 Nenhum campo pode ficar vazio.
             </p>
 
-            <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X.">
+            <img src="assets/icons/close_black_24dp.svg" alt="Icone de um X." loading="lazy" decoding="async"
+                title="Fechar notificação">
         </div>
     </main>
 
@@ -90,9 +95,6 @@
             </div>
         </div>
     </footer>
-
-    <!-- Code -->
-    <script src="assets/js/code.js" type="text/javascript" async></script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-var CACHE_NAME = 'horas-trabalhadas-cache-v2';
+var cacheName = 'horas-trabalhadas-cache-v3';
 var urlsToCache = [
     '/',
     '/index.html',
@@ -18,44 +18,36 @@ var urlsToCache = [
     '/assets/icons/about.txt',
 ];
 
-self.addEventListener('install', function (event) {
+self.addEventListener('install', event => {
     // Perform install steps
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function (cache) {
-                console.log('Opened cache');
-                return cache.addAll(urlsToCache);
+        caches
+            .open(cacheName)
+            .then(cache => {
+                cache.addAll(urlsToCache);
             })
+            .then(() => self.skipWaiting())
     );
 });
 
-self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request)
-            .then(function (response) {
-                // Cache hit - return response
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            }
-            )
-    );
-});
-
-self.addEventListener('activate', function (event) {
-
-    var cacheAllowlist = ['horas-trabalhadas-cache-v2'];
-
+self.addEventListener('activate', event => {
+    // Remove old caches
     event.waitUntil(
-        caches.keys().then(function (cacheNames) {
+        caches.keys().then(cacheNames => {
             return Promise.all(
-                cacheNames.map(function (cacheName) {
-                    if (cacheAllowlist.indexOf(cacheName) === -1) {
-                        return caches.delete(cacheName);
+                cacheNames.map(cache => {
+                    if (cache !== cacheName) {
+                        return caches.delete(cache);
                     }
                 })
             );
         })
     );
+});
+
+self.addEventListener('fetch', event => {
+    // Cache and network fallback
+    event.respondWith(
+        fetch(event.request).catch(() => caches.match(event.request))
+    )
 });
