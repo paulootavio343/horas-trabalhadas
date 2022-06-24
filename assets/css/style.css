@@ -228,7 +228,7 @@ img {
 }
 
 footer {
-    height: 10rem;
+    height: 6rem;
     background-color: var(--secondary-color);
     display: flex;
     flex-direction: column;

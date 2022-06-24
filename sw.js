@@ -1,14 +1,11 @@
-var cacheName = 'horas-trabalhadas-cache-v3';
+var cacheName = 'horas-trabalhadas-cache-v4';
 var urlsToCache = [
     '/',
     '/index.html',
-    '/termos-de-uso.html',
-    '/politica-de-privacidade.html',
+    '/site.webmanifest',
     '/assets/js/code.js',
     '/assets/js/service-worker-registration.js',
-    '/assets/css/document.css',
     '/assets/css/style.css',
-    '/site.webmanifest',
     '/assets/fonts/Roboto/Roboto-Regular.ttf',
     '/assets/fonts/Roboto/Roboto-Bold.ttf',
     '/assets/fonts/Roboto/LICENSE.txt',
